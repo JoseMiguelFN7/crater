@@ -60,6 +60,77 @@
     </div>
 
     <ul class="flex float-right h-8 m-0 list-none md:h-9">
+      <!-- Calculadora de Divisas -->
+      <li class="relative block float-left ml-2">
+        <BaseDropdown width-class="w-48">
+          <template #activator
+            ><BaseIcon
+              name="CalculatorIcon"
+              class="
+                flex
+                items-center
+                justify-center
+                w-8
+                h-8
+                ml-2
+                text-sm text-white
+                rounded
+                md:h-9 md:w-9
+                hover:bg-indigo-600
+                transition
+                duration-300
+              "
+            />
+          </template>
+
+          <!-- Inputs calculadora -->
+          <div class="grid grid-rows-2 grid-cols-3 m-2">
+            <div class="col-span-1 flex items-center justify-center">
+              <p class="text-lg font-bold">$</p>
+            </div>
+            <div class="max-w-sm space-y-3 col-span-2 m-1">
+              <input
+                type="text"
+                class="
+                  py-2.5
+                  sm:py-3
+                  px-4
+                  block
+                  w-full
+                  border-gray-200
+                  rounded-lg
+                  sm:text-sm
+                  focus:border-blue-500 focus:ring-blue-500
+                  disabled:opacity-50 disabled:pointer-events-none
+                "
+                value="0.00"
+              />
+            </div>
+            <div class="col-span-1 flex items-center justify-center">
+              <p class="text-lg font-bold">Bs.</p>
+            </div>
+            <div class="max-w-sm space-y-3 col-span-2 m-1">
+              <input
+                type="text"
+                class="
+                  py-2.5
+                  sm:py-3
+                  px-4
+                  block
+                  w-full
+                  border-gray-200
+                  rounded-lg
+                  sm:text-sm
+                  focus:border-blue-500 focus:ring-blue-500
+                  disabled:opacity-50 disabled:pointer-events-none
+                "
+                value="0,00"
+              />
+            </div>
+          </div>
+        </BaseDropdown>
+      </li>
+
       <li
         v-if="hasCreateAbilities"
         class="relative hidden float-left m-0 md:block"
@@ -124,14 +195,14 @@
         </BaseDropdown>
       </li>
 
-      <!--<li class="ml-2">
+      <li class="ml-2">
         <GlobalSearchBar
           v-if="
             userStore.currentUser.is_owner ||
             userStore.hasAbilities(abilities.VIEW_CUSTOMER)
           "
         />
-      </li>-->
+      </li>
 
       <li>
         <CompanySwitcher />
