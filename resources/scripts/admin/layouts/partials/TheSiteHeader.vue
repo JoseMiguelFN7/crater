@@ -124,14 +124,14 @@
         </BaseDropdown>
       </li>
 
-      <li class="ml-2">
+      <!--<li class="ml-2">
         <GlobalSearchBar
           v-if="
             userStore.currentUser.is_owner ||
             userStore.hasAbilities(abilities.VIEW_CUSTOMER)
           "
         />
-      </li>
+      </li>-->
 
       <li>
         <CompanySwitcher />
