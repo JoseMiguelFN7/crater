@@ -107,7 +107,7 @@
                   pb-2
                 "
               >
-                Calculadora USD ↔ VES (Tasa: {{ bcvRate.toFixed(2) }})
+                Calculadora USD ↔ VES (Tasa: {{ formattedBcvRate }})
               </p>
 
               <div class="grid grid-rows-2 grid-cols-4 items-center gap-2">
@@ -359,6 +359,17 @@ function updateInput(source) {
 }
 
 // Lógica de conversión (cálculo)
+
+const formattedBcvRate = computed(() => {
+  if (bcvRate.value) {
+    // 1. Usar toFixed(2) para asegurar 2 decimales y convertir a string con '.'
+    const rateWithDot = bcvRate.value.toFixed(2)
+
+    // 2. Reemplazar el punto por una coma para el formato deseado
+    return rateWithDot.replace('.', ',')
+  }
+  return 'N/A' // O el valor que prefieras si la tasa no está disponible
+})
 
 const calculatedVes = computed(() => {
   const rate = bcvRate.value
